@@ -1,0 +1,69 @@
+.DS_Store
+.idea
+.vscode
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.development
+.env.test
+.env.production
+
+# for swift/ios project
+
+## Xcode
+#
+# gitignore contributors: remember to keep this file platform-agnostic
+# gitignore developers: see https://help.github.com/articles/ignoring-files/ for more information
+
+## User-specific files
+*.xcuserdatad
+*.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/
+
+# Build generated
+build/
+DerivedData/
+
+## Various settings
+*.moved-aside
+*.xcuserstate
+
+## Swift Package Manager
+#
+# Add this line if you want to avoid checking in source code from Swift Package Manager dependencies.
+.build/
+Packages/
+Package.resolved
+.swiftpm/
+
+# Carthage
+#
+# Add this line if you want to avoid checking in source code from Carthage dependencies.
+Carthage/Build
+Carthage/Checkouts
+
+# CocoaPods
+#
+# We recommend against adding the Podfile.lock to your .gitignore. However
+# you may want to uncomment this line if you are reporting issues Podfile.lock
+# is causing merge conflicts.
+#
+# Podfile.lock
+Pods/
+
+# Models
+*.mlmodelc
+
+# Other
+*.app
+*.ipa
+*.swp
+*~
+*.orig
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+*.profraw
