@@ -1189,7 +1189,7 @@ class ARViewModel: NSObject, ObservableObject, ARSessionDelegate {
             self.scanProgress += progressIncrement
             
             // Check if we found the target object during scanning
-            if !self.foundTarget && self.detectedObjectLabels.contains(where: { 
+            if !self.foundTarget && self.allDetectedObjects.contains(where: { 
                 $0.lowercased().contains(self.scanningTargetObject.lowercased()) 
             }) {
                 self.foundTarget = true

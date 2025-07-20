@@ -180,7 +180,9 @@ class GeminiLiveAPIClient: NSObject, ObservableObject, URLSessionWebSocketDelega
     private var setupParameters: (modelName: String, systemPrompt: String, voiceName: String, languageCode: String, includeGoogleSearch: Bool)?
 
     func connect(
-        modelName: String = "models/gemini-2.5-flash-preview-native-audio-dialog",
+        // modelName: String = "models/gemini-2.0-flash-live-001",
+        modelName: String = "models/gemini-live-2.5-flash-preview",
+        // modelName: String = "models/gemini-2.5-flash-preview-native-audio-dialog",
         systemPrompt: String = """
         당신은 시각장애인 안전 도우미입니다.
         사용자는 성인 기준 약 50cm의 어깨 너비를 가지고 있습니다.
@@ -188,6 +190,7 @@ class GeminiLiveAPIClient: NSObject, ObservableObject, URLSessionWebSocketDelega
         안전한 통행을 위해 좌우 50cm 여유 공간이 필요합니다.
         장애물은 구체적 이름과 위치를 명확히 설명하세요.
         한국어로 간결하고 신속하게 답변하세요.
+        시각장애인이 요청한 것이 아니면 구글서치를 하지 마세요.
         """,
         voiceName: String = "Leda",
         languageCode: String = "ko-KR",
@@ -201,8 +204,7 @@ class GeminiLiveAPIClient: NSObject, ObservableObject, URLSessionWebSocketDelega
             return
         }
         
-        // guard let url = URL(string: "wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1beta.GenerativeService.BidiGenerateContent?key=\(self.apiKey)") else {
-        guard let url = URL(string: "wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1alpha.GenerativeService.BidiGenerateContent?key=\(self.apiKey)") else {
+        guard let url = URL(string: "wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1beta.GenerativeService.BidiGenerateContent?key=\(self.apiKey)") else {
             print("Error: Invalid URL")
             self.chatMessages.append(ChatMessage(text: "Error: Invalid API URL", sender: .system))
             return
